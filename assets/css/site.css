@@ -1032,3 +1032,17 @@ p:last-child { margin-bottom: 0; }
 
 /* Mobile: arrows overlapped hero copy — use dots + swipe instead */
 @media (max-width: 760px) { .hero__arrow { display: none; } }
+
+/* ---------- 27. DEMOLAY PRECEPTS PANEL (stands in for a photo) ----------- */
+.precepts {
+  aspect-ratio: 4 / 3; background: var(--ink); color: var(--white);
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 28px 24px; position: relative;
+  border-top: 4px solid var(--gold);
+}
+.precepts__eyebrow { color: var(--gold) !important; font-family: var(--display); font-weight: 800;
+  font-size: 12px; letter-spacing: .18em; text-transform: uppercase; margin: 0 0 14px; }
+.precepts ol { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 34px; }
+.precepts li { font-family: var(--display); font-weight: 700; font-size: 19px; padding: 5px 0; color: var(--white); break-inside: avoid; }
+.precepts__foot { color: rgba(255,255,255,.65) !important; font-size: 12px !important; margin: 14px 0 0 !important; }
+@media (max-width: 760px) { .precepts li { font-size: 16px; padding: 3px 0; } .precepts { padding: 22px 16px; } }
