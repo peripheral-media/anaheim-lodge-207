@@ -350,3 +350,18 @@
     });
   });
 })();
+
+/* Hero: swipe left/right on touch screens */
+(function () {
+  var hero = document.querySelector('[data-hero]');
+  if (!hero) return;
+  var x0 = null;
+  hero.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  hero.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) < 40) return;
+    var btn = hero.querySelector(dx < 0 ? '.hero__arrow--next' : '.hero__arrow--prev');
+    if (btn) btn.click();
+  }, { passive: true });
+})();

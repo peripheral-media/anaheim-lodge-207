@@ -1029,3 +1029,6 @@ p:last-child { margin-bottom: 0; }
   .mc-form { flex-direction: column; }
   .mc-form .btn { width: 100%; }
 }
+
+/* Mobile: arrows overlapped hero copy — use dots + swipe instead */
+@media (max-width: 760px) { .hero__arrow { display: none; } }
