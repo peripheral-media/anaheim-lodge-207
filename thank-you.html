@@ -22,6 +22,7 @@
       <ul style="display:contents">
         <li><a href="becoming-a-mason.html">Becoming a Mason</a></li>
         <li><a href="about.html">About</a></li>
+        <li><a href="youth-orders.html">Youth Orders</a></li>
         <li><a href="calendar.html">Calendar</a></li>
         <li><a href="officers.html">Officers</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -36,7 +37,7 @@
     <div class="wrap wrap--narrow center">
       <p class="eyebrow">Message received</p>
       <div class="rule-title"><h1 style="font-size:40px">Thank you for reaching out.</h1></div>
-      <p>A member of Anaheim Lodge No. 207 will follow up with you personally, usually within three days. If you'd rather not wait, you're welcome to join us on a Wednesday evening — events begin around 6:30&nbsp;PM on the 2nd floor at 303 W Lincoln Avenue.</p>
+      <p id="ty-msg">A member of Anaheim Lodge No. 207 will follow up with you personally, usually within a few days. If you'd rather not wait, you're welcome to join us on a Wednesday evening — events begin around 6:30&nbsp;PM on the 2nd floor at 303 W Lincoln Avenue.</p>
 
       <div class="btn-row btn-row--center" style="margin-top:34px">
         <a class="btn btn--gold" href="calendar.html">See what's coming up</a>
@@ -63,5 +64,12 @@
 
 <script src="assets/js/site.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+if (/form=trestle-board/.test(location.search)) {
+  var m = document.getElementById('ty-msg'), h = document.querySelector('h1');
+  if (h) h.textContent = 'You\'re on the list.';
+  if (m) m.innerHTML = 'Watch your inbox for the next monthly Trestle Board &mdash; upcoming dinners, family events and news from Anaheim Lodge. In the meantime, you are always welcome to join us on a Wednesday evening, dinner at 6:30&nbsp;PM, 303 W Lincoln Avenue.';
+}
+</script>
 </body>
 </html>

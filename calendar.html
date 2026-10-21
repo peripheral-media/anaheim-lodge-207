@@ -58,12 +58,12 @@
 <main class="site-main">
 
 <!-- ============================== PAGE HERO =========================== -->
-<section class="page-hero" role="img" aria-label="Brethren of Anaheim Lodge No. 207 at a lodge event"
+<section class="page-hero" role="img" aria-label="Anaheim Lodge No. 207 honoring local public schools"
          style="background-image:url('assets/img/page-hero-calendar.webp');background-size:cover;background-position:center">
   <div class="page-hero__scrim"></div>
   <div class="page-hero__inner">
     <h1>Calendar</h1>
-    <p>Stated meetings, degree nights, dinners, and community events &mdash; everything happening at 303 W Lincoln Avenue.</p>
+    <p>Dinners, family gatherings, community events and lodge meetings &mdash; there is always a seat for you at 303 W Lincoln Avenue.</p>
   </div>
 </section>
 
@@ -72,7 +72,7 @@
   <div class="wrap">
     <div class="center">
       <div class="rule-title"><h2>When We Meet</h2></div>
-      <p class="wrap--narrow" style="margin:0 auto 56px">Anyone is welcome to come to a dinner or a public event. Tyled meetings are for members, but there is almost always something happening that you can join.</p>
+      <p class="wrap--narrow" style="margin:0 auto 56px">Guests and families are welcome at our dinners and public events. Our lodge meetings are for members, but there is almost always something happening that you and your family can join.</p>
     </div>
     <div class="grid grid--3">
       <div class="card">
@@ -80,7 +80,7 @@
         <ul>
           <li>First Monday of each month</li>
           <li>Business of the Lodge</li>
-          <li>Members and visiting brethren</li>
+          <li>Members and visiting Masons</li>
         </ul>
       </div>
       <div class="card">
@@ -95,8 +95,8 @@
         <h3>Public Events</h3>
         <ul>
           <li>Installation of Officers</li>
-          <li>Family and community dinners</li>
-          <li>School and charity activities</li>
+          <li>Family dinners and holiday celebrations</li>
+          <li>School appreciation and charity activities</li>
         </ul>
       </div>
     </div>
@@ -111,20 +111,19 @@
   <div class="wrap">
     <div class="center">
       <div class="rule-title"><h2>Upcoming Events</h2></div>
-      <p class="wrap--narrow" style="margin:0 auto 48px">The Lodge calendar below is kept current. Add it to your own calendar with the button in the lower corner.</p>
+      <p class="wrap--narrow" style="margin:0 auto 48px">Our calendar is kept current by the lodge. Events marked open are welcome to guests and families &mdash; add the calendar to your own with the button in the lower corner.</p>
     </div>
 
-    <!-- GOOGLE CALENDAR EMBED SLOT
-         Replace this block with the iframe from
-         Google Calendar > Settings > [calendar] > Integrate calendar > Embed code.
-         Keep loading="lazy" and the wrapper div so it stays responsive. -->
-    <div style="position:relative;padding-bottom:75%;height:0;overflow:hidden;background:#ededed">
-      <div class="ph ph--fill"><span><b>Google Calendar embed slot</b>paste the iframe from Google Calendar &rsaquo; Integrate calendar</span></div>
+    <!-- GOOGLE CALENDAR EMBED SLOT (month view)
+         Google Calendar > Settings > [lodge calendar] > Integrate calendar > Embed code.
+         Make the calendar public first, then replace the .ph div below with:
+         <iframe src="https://calendar.google.com/calendar/embed?src=CALENDAR_ID&ctz=America%2FLos_Angeles&showTitle=0&showPrint=0&mode=MONTH" loading="lazy" title="Anaheim Lodge No. 207 calendar"></iframe> -->
+    <div class="cal-frame">
+      <div class="ph ph--fill"><span><b>Google Calendar embed slot</b>month view &middot; paste the lodge calendar iframe here</span></div>
     </div>
 
     <p class="center" style="margin-top:26px;font-size:13px;color:var(--body-light)">
-      Note: the calendar embed will not display when this page is opened directly from your
-      hard drive. It works once the site is served over http, locally or on Netlify.
+      Planning to visit? <a href="contact.html" style="border-bottom:1px solid var(--gold)">Let us know you're coming</a> and a member will greet you at the door.
     </p>
   </div>
 </section>
@@ -133,7 +132,7 @@
 <section class="band" style="background-image:url('assets/img/band-meet.webp')">
   <div class="wrap center">
     <div class="rule-title rule-title--light"><h2>Come and See for Yourself</h2></div>
-    <p class="wrap--narrow" style="margin:0 auto">You do not need an invitation and you do not need to know anyone. Let us know you are coming and someone will meet you at the door.</p>
+    <p class="wrap--narrow" style="margin:0 auto">You do not need an invitation, and you do not need to know anyone. Bring your spouse, bring a friend &mdash; just let us know you are coming and someone will meet you at the door.</p>
     <div class="btn-row btn-row--center" style="margin-top:36px">
       <a class="btn btn--gold" href="contact.html">Tell Us You're Coming</a>
       <a class="btn btn--gold" href="https://maps.google.com/?q=303+W+Lincoln+Avenue+Anaheim+CA+92805" target="_blank" rel="noopener">Get Directions</a>
@@ -141,15 +140,25 @@
   </div>
 </section>
 
-<!-- ============================== NEWSLETTER ========================== -->
-<section class="subscribe">
+
+<!-- ============================== NEWSLETTER (MAILCHIMP) ============== -->
+<!-- MAILCHIMP: paste the list's form action URL into data-mc-action
+     (Mailchimp > Audience > Signup forms > Embedded form > the <form action="..."> value).
+     Until then, signups are captured by Netlify Forms ("trestle-board") so none are lost. -->
+<section class="subscribe" id="trestle-board">
   <div class="wrap center">
     <h2>Stay Connected: Receive Our Monthly Trestle Board</h2>
-    <p>Deepen your understanding of Freemasonry and keep pace with the heart of Anaheim Lodge No. 207. Our monthly Trestle Board delivers upcoming event details — including public dinners — and news directly to your inbox.</p>
-    <div class="subscribe__slot">
-      MAILCHIMP EMBED SLOT — paste the Mailchimp form code here.<br>
-      Button copy: “Receive Monthly Trestle Board”
-    </div>
+    <p>Our monthly newsletter brings you upcoming dinners, family events, community projects and news from the lodge &mdash; a simple way to stay close, whether you are a member, a family, or just curious.</p>
+    <form class="mc-form" data-mc-action="" name="trestle-board" method="POST" data-netlify="true" netlify-honeypot="company-website" action="/thank-you.html?form=trestle-board">
+      <input type="hidden" name="form-name" value="trestle-board">
+      <p class="hp"><label>Leave this empty: <input name="company-website"></label></p>
+      <label class="sr-only" for="mc-fname-calendar">First name</label>
+      <input id="mc-fname-calendar" name="FNAME" type="text" placeholder="First name" autocomplete="given-name">
+      <label class="sr-only" for="mc-email-calendar">Email address</label>
+      <input id="mc-email-calendar" name="EMAIL" type="email" placeholder="Email address" autocomplete="email" required>
+      <button class="btn btn--gold" type="submit">Receive the Trestle Board</button>
+    </form>
+    <p class="mc-note">One email a month. Unsubscribe anytime. We never share your address.</p>
   </div>
 </section>
 

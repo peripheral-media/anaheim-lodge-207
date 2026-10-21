@@ -58,12 +58,12 @@
 <main class="site-main">
 
 <!-- ============================== PAGE HERO =========================== -->
-<section class="page-hero" role="img" aria-label="The altar of Anaheim Lodge No. 207"
+<section class="page-hero" role="img" aria-label="The Anaheim Masonic building"
          style="background-image:url('assets/img/page-hero-contact.webp');background-size:cover;background-position:center">
   <div class="page-hero__scrim"></div>
   <div class="page-hero__inner">
     <h1>Start the Conversation</h1>
-    <p>Five short questions. No obligation, no sales pitch, and a real person replies.</p>
+    <p>Five quick steps. No obligation, no sales pitch &mdash; and a real member of our lodge replies.</p>
   </div>
 </section>
 
@@ -79,50 +79,77 @@
       <div class="qform__progress" aria-hidden="true"></div>
 
       <div class="qform__step" data-step>
-        <p class="eyebrow">First things first</p>
-        <h2>What should we call you?</h2>
+        <p class="eyebrow">Welcome</p>
+        <h2>First, what should we call you?</h2>
         <div class="field field--light">
           <label for="q-name">First name</label>
           <input id="q-name" name="first-name" type="text" autocomplete="given-name" required>
         </div>
+        <div class="field field--light">
+          <label for="q-last">Last name <span style="opacity:.7">(optional)</span></label>
+          <input id="q-last" name="last-name" type="text" autocomplete="family-name">
+        </div>
       </div>
 
       <div class="qform__step" data-step>
-        <p class="eyebrow">So we can reply</p>
+        <p class="eyebrow">Step 2 of 5</p>
+        <h2>What brings you to Anaheim Lodge?</h2>
+        <div class="chips chips--stack" role="radiogroup" aria-label="What brings you here">
+          <label class="chip"><input type="radio" name="reason" value="Curious about Freemasonry" required><span>I'm curious about Freemasonry</span></label>
+          <label class="chip"><input type="radio" name="reason" value="Interested in becoming a Mason"><span>I'm interested in becoming a Mason</span></label>
+          <label class="chip"><input type="radio" name="reason" value="Mason visiting or affiliating"><span>I'm already a Mason and would like to visit</span></label>
+          <label class="chip"><input type="radio" name="reason" value="Youth or family program"><span>My son, daughter or family wants to get involved</span></label>
+          <label class="chip"><input type="radio" name="reason" value="Community, school or media"><span>Community partnership, school or media inquiry</span></label>
+        </div>
+      </div>
+
+      <div class="qform__step" data-step>
+        <p class="eyebrow">Step 3 of 5</p>
+        <h2>What would you enjoy most?</h2>
+        <p style="font-size:13px;color:var(--body-light);margin:-6px 0 18px">Choose as many as you like.</p>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="interested-in" value="Wednesday dinner"><span>Join us for a Wednesday dinner</span></label>
+          <label class="chip"><input type="checkbox" name="interested-in" value="Family or community event"><span>Attend a family or community event</span></label>
+          <label class="chip"><input type="checkbox" name="interested-in" value="Talk with a member"><span>Talk with a member</span></label>
+          <label class="chip"><input type="checkbox" name="interested-in" value="Tour the lodge"><span>Tour our historic lodge</span></label>
+          <label class="chip"><input type="checkbox" name="interested-in" value="Monthly Trestle Board"><span>Receive the monthly Trestle Board</span></label>
+        </div>
+      </div>
+
+      <div class="qform__step" data-step>
+        <p class="eyebrow">Step 4 of 5</p>
+        <h2>What draws you to Masonry?</h2>
+        <p style="font-size:13px;color:var(--body-light);margin:-6px 0 18px">Pick any that ring true &mdash; there are no wrong answers.</p>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="drawn-to" value="Personal growth and character"><span>Personal growth &amp; character</span></label>
+          <label class="chip"><input type="checkbox" name="drawn-to" value="Brotherhood and friendship"><span>Brotherhood &amp; friendship</span></label>
+          <label class="chip"><input type="checkbox" name="drawn-to" value="Family and community"><span>Family &amp; community</span></label>
+          <label class="chip"><input type="checkbox" name="drawn-to" value="Service and charity"><span>Service &amp; charity</span></label>
+          <label class="chip"><input type="checkbox" name="drawn-to" value="History and tradition"><span>History &amp; tradition</span></label>
+          <label class="chip"><input type="checkbox" name="drawn-to" value="Meaning and purpose"><span>Meaning &amp; purpose</span></label>
+        </div>
+        <div class="field field--light" style="margin-top:20px">
+          <label for="q-why">Anything you'd like to add? <span style="opacity:.7">(optional)</span></label>
+          <textarea id="q-why" name="in-their-words" rows="3"></textarea>
+        </div>
+      </div>
+
+      <div class="qform__step" data-step>
+        <p class="eyebrow">Last step</p>
         <h2>Where can we reach you?</h2>
         <div class="field field--light">
           <label for="q-email">Email</label>
           <input id="q-email" name="email" type="email" autocomplete="email" required>
         </div>
-        <p style="font-size:12px;color:var(--body-light)">We use this only to answer you. We do not sell or share it, ever.</p>
-      </div>
-
-      <div class="qform__step" data-step>
-        <p class="eyebrow">Question 1 of 3</p>
-        <h2>What drew you to Freemasonry?</h2>
         <div class="field field--light">
-          <label for="q-1">Take as much or as little space as you like</label>
-          <textarea id="q-1" name="what-drew-you"></textarea>
+          <label for="q-phone">Phone <span style="opacity:.7">(optional &mdash; for a quick call or text)</span></label>
+          <input id="q-phone" name="phone" type="tel" autocomplete="tel">
         </div>
-      </div>
-
-      <div class="qform__step" data-step>
-        <p class="eyebrow">Question 2 of 3</p>
-        <h2>What are you hoping to find here?</h2>
         <div class="field field--light">
-          <label for="q-2">There is no wrong answer to this one</label>
-          <textarea id="q-2" name="hoping-to-find"></textarea>
+          <label for="q-question">Your question for us <span style="opacity:.7">(optional)</span></label>
+          <textarea id="q-question" name="your-question" rows="3" placeholder="The question you'd ask if nobody else were listening"></textarea>
         </div>
-      </div>
-
-      <div class="qform__step" data-step>
-        <p class="eyebrow">Question 3 of 3</p>
-        <h2>What would you most like to ask us?</h2>
-        <div class="field field--light">
-          <label for="q-3">The question you would ask if nobody else were listening</label>
-          <textarea id="q-3" name="your-question"></textarea>
-        </div>
-        <p style="font-size:11px;color:var(--body-light);margin-top:18px">By sending this you agree to our <a href="privacy.html" style="border-bottom:1px solid var(--gold)">Privacy Policy</a>. Your answers go to the Lodge Secretary and nowhere else.</p>
+        <p style="font-size:11px;color:var(--body-light);margin-top:12px">By sending this you agree to our <a href="privacy.html" style="border-bottom:1px solid var(--gold)">Privacy Policy</a>. Your answers go only to the officers of Anaheim Lodge. We never sell or share your information.</p>
       </div>
 
       <div class="qform__nav">
@@ -144,16 +171,16 @@
   <div class="wrap">
     <div class="center">
       <div class="rule-title"><h2>What Happens Next</h2></div>
-      <p class="wrap--narrow" style="margin:0 auto 56px">No mystery, no waiting to wonder whether it arrived.</p>
+      <p class="wrap--narrow" style="margin:0 auto 56px">Simple, personal and pressure-free.</p>
     </div>
     <div class="stepper wrap--narrow" style="margin:0 auto">
       <div class="stepper__item">
-        <h3>You receive a confirmation</h3>
-        <p>Immediately, by email, so you know it landed.</p>
+        <h3>You see a confirmation</h3>
+        <p>Right away, on screen, so you know your message landed safely.</p>
       </div>
       <div class="stepper__item">
         <h3>A member reads it &mdash; a person, not a system</h3>
-        <p>Your answers go to the Lodge Secretary, who passes them to the brother best placed to reply.</p>
+        <p>Your answers go to the officers of the lodge, who make sure the brother best suited to your interests reaches out.</p>
       </div>
       <div class="stepper__item">
         <h3>You hear back, usually within a few days</h3>
@@ -161,7 +188,7 @@
       </div>
       <div class="stepper__item">
         <h3>You decide what happens after that</h3>
-        <p>Come to a dinner, ask more questions, or simply leave it there. There is no follow-up campaign.</p>
+        <p>Come to dinner, bring your family to an event, ask more questions, or simply leave it there. There is never any pressure.</p>
       </div>
     </div>
   </div>
@@ -172,7 +199,7 @@
   <div class="wrap">
     <div class="center">
       <div class="rule-title"><h2>Visit Us in Anaheim</h2></div>
-      <p class="wrap--narrow" style="margin:0 auto 56px">Experience the spirit of Anaheim Lodge No. 207 firsthand. We welcome your inquiries and invite you to connect with our brotherhood.</p>
+      <p class="wrap--narrow" style="margin:0 auto 56px">The best way to know us is in person. Stop by for dinner on a Wednesday night &mdash; we would be glad to meet you and your family.</p>
     </div>
     <div class="grid grid--3">
       <div class="card">
@@ -184,14 +211,14 @@
       </div>
       <div class="card">
         <h3>Email</h3>
-        <p>The Lodge Secretary reads everything sent to this address.</p>
+        <p>Prefer email? The lodge reads everything sent to this address.</p>
         <div class="btn-row" style="margin-top:20px">
           <a class="textlink" href="mailto:anaheimlodge207@gmail.com">anaheimlodge207@gmail.com</a>
         </div>
       </div>
       <div class="card">
         <h3>When We Gather</h3>
-        <p>Wednesday nights, with dinner at 6:30&nbsp;PM. Our Stated Meeting is the first Monday of each month. Please check the calendar before travelling.</p>
+        <p>Wednesday nights, with dinner at 6:30&nbsp;PM. Our Stated Meeting is the first Monday of each month. Please check the calendar before you come.</p>
         <div class="btn-row" style="margin-top:20px">
           <a class="textlink" href="calendar.html">View Calendar</a>
         </div>
@@ -204,7 +231,7 @@
 <section class="connect">
   <div class="wrap center">
     <div class="rule-title rule-title--light"><h2>Get Connected</h2></div>
-    <p>Click to learn more about Anaheim Lodge No. 207 and starting your journey to become the best version of yourself!</p>
+    <p>Follow along, say hello, or reach out with a question &mdash; we would love to hear from you.</p>
 
     <div class="connect__grid">
       <a class="connect__item" href="contact.html">
@@ -220,26 +247,36 @@
       <a class="connect__item" href="https://www.instagram.com/anaheimlodge" target="_blank" rel="noopener">
         <span class="connect__circle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.3.15 4.8 1.7 5 5 .06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.15 3.3-1.7 4.8-5 5-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-3.3-.15-4.8-1.7-5-5C2.04 15.6 2 15.2 2 12s0-3.6.07-4.9c.15-3.3 1.7-4.8 5-5C8.4 2.04 8.8 2.2 12 2.2zm0 3.1a6.7 6.7 0 1 0 0 13.4 6.7 6.7 0 0 0 0-13.4zm0 11a4.3 4.3 0 1 1 0-8.6 4.3 4.3 0 0 1 0 8.6zm6.9-11.2a1.6 1.6 0 1 0 0 3.1 1.6 1.6 0 0 0 0-3.1z"/></svg></span>
         <span class="connect__label">Instagram</span>
-        <span class="connect__sub">View Exclusive Images</span>
+        <span class="connect__sub">Lodge Life in Photos</span>
       </a>
       <a class="connect__item" href="https://www.youtube.com/californiamasons" target="_blank" rel="noopener">
         <span class="connect__circle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 12s0-3.8-.5-5.6a2.9 2.9 0 0 0-2-2C18.7 4 12 4 12 4s-6.7 0-8.5.4a2.9 2.9 0 0 0-2 2C1 8.2 1 12 1 12s0 3.8.5 5.6a2.9 2.9 0 0 0 2 2C5.3 20 12 20 12 20s6.7 0 8.5-.4a2.9 2.9 0 0 0 2-2C23 15.8 23 12 23 12zM9.8 15.4V8.6l5.8 3.4z"/></svg></span>
         <span class="connect__label">YouTube</span>
-        <span class="connect__sub">View Exclusive Videos</span>
+        <span class="connect__sub">California Masons on Video</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ============================== NEWSLETTER ========================== -->
-<section class="subscribe">
+
+<!-- ============================== NEWSLETTER (MAILCHIMP) ============== -->
+<!-- MAILCHIMP: paste the list's form action URL into data-mc-action
+     (Mailchimp > Audience > Signup forms > Embedded form > the <form action="..."> value).
+     Until then, signups are captured by Netlify Forms ("trestle-board") so none are lost. -->
+<section class="subscribe" id="trestle-board">
   <div class="wrap center">
     <h2>Stay Connected: Receive Our Monthly Trestle Board</h2>
-    <p>Deepen your understanding of Freemasonry and keep pace with the heart of Anaheim Lodge No. 207. Our monthly Trestle Board delivers upcoming event details — including public dinners — and news directly to your inbox.</p>
-    <div class="subscribe__slot">
-      MAILCHIMP EMBED SLOT — paste the Mailchimp form code here.<br>
-      Button copy: “Receive Monthly Trestle Board”
-    </div>
+    <p>Our monthly newsletter brings you upcoming dinners, family events, community projects and news from the lodge &mdash; a simple way to stay close, whether you are a member, a family, or just curious.</p>
+    <form class="mc-form" data-mc-action="" name="trestle-board" method="POST" data-netlify="true" netlify-honeypot="company-website" action="/thank-you.html?form=trestle-board">
+      <input type="hidden" name="form-name" value="trestle-board">
+      <p class="hp"><label>Leave this empty: <input name="company-website"></label></p>
+      <label class="sr-only" for="mc-fname-contact">First name</label>
+      <input id="mc-fname-contact" name="FNAME" type="text" placeholder="First name" autocomplete="given-name">
+      <label class="sr-only" for="mc-email-contact">Email address</label>
+      <input id="mc-email-contact" name="EMAIL" type="email" placeholder="Email address" autocomplete="email" required>
+      <button class="btn btn--gold" type="submit">Receive the Trestle Board</button>
+    </form>
+    <p class="mc-note">One email a month. Unsubscribe anytime. We never share your address.</p>
   </div>
 </section>
 

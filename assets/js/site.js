@@ -302,3 +302,51 @@
     document.addEventListener('DOMContentLoaded', boot);
   } else { boot(); }
 })();
+
+/* =========================================================================
+   Form wiring — Mailchimp-ready newsletter + inline submit for the
+   conversational form (Netlify Forms now; optional webhook for GHL later)
+   ========================================================================= */
+(function () {
+  'use strict';
+
+  // Newsletter: when a Mailchimp action URL is pasted into data-mc-action,
+  // the form posts straight to Mailchimp. Until then Netlify Forms keeps it.
+  Array.prototype.forEach.call(document.querySelectorAll('.mc-form'), function (f) {
+    var mc = (f.getAttribute('data-mc-action') || '').trim();
+    if (mc) { f.action = mc; f.target = '_blank'; f.removeAttribute('data-netlify'); }
+  });
+
+  // Conversational form: submit in place, show a thank-you, no page jump.
+  var form = document.querySelector('[data-qform]');
+  if (!form || !window.fetch) return;
+  form.addEventListener('submit', function (e) {
+    if (e.defaultPrevented || !form.checkValidity()) return;
+    e.preventDefault();
+    var fd = new FormData(form);
+    var body = new URLSearchParams();
+    fd.forEach(function (v, k) { body.append(k, v); });
+    var send = form.querySelector('[data-qsubmit]');
+    if (send) { send.disabled = true; send.textContent = 'Sending…'; }
+
+    var jobs = [fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString() })];
+    var hook = (form.getAttribute('data-webhook') || '').trim();   // GHL / Make webhook, added later
+    if (hook) {
+      var obj = {};
+      fd.forEach(function (v, k) { if (k === 'form-name' || k === 'company-website') return; obj[k] = obj[k] ? obj[k] + ', ' + v : v; });
+      obj.source = 'anaheimlodge-website'; obj.page = location.pathname;
+      jobs.push(fetch(hook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(obj) }).catch(function () {}));
+    }
+    Promise.all(jobs).then(function (r) {
+      if (!r[0].ok) throw new Error('send failed');
+      var name = fd.get('first-name') || '';
+      form.innerHTML = '<div class="qform__thanks"><p class="eyebrow">Message received</p><h2>Thank you' + (name ? ', ' + String(name).replace(/[<>&"]/g, '') : '') + '.</h2>' +
+        '<p>A member of Anaheim Lodge will reach out personally, usually within a few days. In the meantime, you are always welcome at our Wednesday dinners.</p>' +
+        '<div class="btn-row btn-row--center" style="margin-top:26px"><a class="btn btn--gold" href="calendar.html">See Upcoming Events</a></div></div>';
+      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }).catch(function () {
+      // Fall back to a normal POST so nothing is lost
+      form.submit();
+    });
+  });
+})();

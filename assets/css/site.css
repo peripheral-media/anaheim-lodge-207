@@ -936,3 +936,96 @@ p:last-child { margin-bottom: 0; }
   .qform__nav { flex-direction: column; }
   .qform__nav .btn { width: 100%; }
 }
+
+/* =========================================================================
+   23. OFFICER CARDS — uniform look, B&W with colour on hover, rank order
+   ========================================================================= */
+.ocards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px 28px; }
+.ocards--principal { grid-template-columns: repeat(3, 1fr); max-width: 960px; margin: 0 auto; gap: 36px; }
+.ocard { text-align: center; }
+.ocard__photo {
+  position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #ececec;
+  box-shadow: 0 0 0 1px var(--rule);
+}
+.ocard__photo img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: grayscale(1) contrast(1.05);
+  transform: scale(1.001);
+  transition: filter .5s var(--ease), transform .7s var(--ease);
+}
+.ocard:hover .ocard__photo img,
+.ocard:focus-within .ocard__photo img { filter: grayscale(0) contrast(1); transform: scale(1.04); }
+.ocard__band {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: var(--gold); color: #1a1a1a;
+  font-family: var(--display); font-weight: 800; font-size: 11px;
+  letter-spacing: .14em; text-transform: uppercase;
+  padding: 11px 8px; line-height: 1.25;
+}
+.ocard--lg .ocard__band { font-size: 13px; padding: 14px 10px; }
+.ocard__name { font-size: 15px; margin: 16px 0 0; color: var(--ink); }
+.ocard--lg .ocard__name { font-size: 18px; }
+.ocard__name:empty { display: none; }
+
+@media (max-width: 1024px) {
+  .ocards { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 760px) {
+  .ocards, .ocards--principal { grid-template-columns: repeat(2, 1fr); gap: 30px 16px; }
+  .ocards--principal .ocard:first-child { grid-column: 1 / -1; max-width: 300px; margin: 0 auto; width: 100%; }
+  .ocard__band { font-size: 10px; letter-spacing: .1em; padding: 9px 6px; }
+  .ocard--lg .ocard__band { font-size: 11px; }
+}
+
+/* =========================================================================
+   24. CHOICE CHIPS — interactive answers in the conversational form
+   ========================================================================= */
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chips--stack { flex-direction: column; }
+.chip { position: relative; cursor: pointer; display: block; }
+.chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.chip span {
+  display: block; padding: 14px 18px 14px 46px; position: relative;
+  border: 1px solid var(--rule); background: var(--white);
+  font-size: 14px; color: var(--ink); line-height: 1.4;
+  transition: border-color .2s var(--ease), background .2s var(--ease), box-shadow .2s var(--ease);
+}
+.chip span::before {
+  content: ""; position: absolute; left: 16px; top: 50%; width: 18px; height: 18px;
+  margin-top: -9px; border: 2px solid #c9c9c9; background: var(--white);
+  transition: all .2s var(--ease);
+}
+.chip input[type="radio"] + span::before { border-radius: 50%; }
+.chip:hover span { border-color: var(--gold); }
+.chip input:focus-visible + span { box-shadow: 0 0 0 3px rgba(255,194,14,.35); }
+.chip input:checked + span { border-color: var(--gold); background: #fffaeb; font-weight: 600; }
+.chip input:checked + span::before {
+  border-color: var(--gold); background: var(--gold);
+  box-shadow: inset 0 0 0 3px var(--white);
+}
+.qform__thanks { text-align: center; padding: 30px 0; }
+.qform__thanks h2 { font-size: 30px; }
+
+/* =========================================================================
+   25. UPCOMING STRIP (home) + CALENDAR EMBED FRAME
+   ========================================================================= */
+.cal-frame { position: relative; padding-bottom: 75%; height: 0; overflow: hidden; background: #ededed; }
+.cal-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+@media (max-width: 760px) { .cal-frame { padding-bottom: 140%; } }
+
+/* ---------- 26. NEWSLETTER FORM ------------------------------------------ */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.mc-form { display: flex; gap: 10px; max-width: 680px; margin: 0 auto; }
+.mc-form input[type="text"], .mc-form input[type="email"] {
+  flex: 1 1 0; min-width: 0; height: 50px; padding: 0 16px;
+  border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); color: var(--white);
+  font: inherit; font-size: 14px;
+}
+.mc-form input::placeholder { color: rgba(255,255,255,.6); }
+.mc-form input:focus { outline: none; border-color: var(--gold); background: rgba(255,255,255,.14); }
+.mc-form .btn { flex: 0 0 auto; height: 50px; white-space: nowrap; }
+.mc-note { font-size: 12px !important; color: rgba(255,255,255,.6) !important; margin: 14px auto 0 !important; }
+@media (max-width: 760px) {
+  .mc-form { flex-direction: column; }
+  .mc-form .btn { width: 100%; }
+}
