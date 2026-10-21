@@ -1,0 +1,2 @@
+# Netlify: clean URLs without the .html extension
+/home    /index.html    301
