@@ -1046,3 +1046,5 @@ p:last-child { margin-bottom: 0; }
 .precepts li { font-family: var(--display); font-weight: 700; font-size: 19px; padding: 5px 0; color: var(--white); break-inside: avoid; }
 .precepts__foot { color: rgba(255,255,255,.65) !important; font-size: 12px !important; margin: 14px 0 0 !important; }
 @media (max-width: 760px) { .precepts li { font-size: 16px; padding: 3px 0; } .precepts { padding: 22px 16px; } }
+.precepts--strip { aspect-ratio: auto; padding: 34px 24px; }
+.precepts--strip ol { columns: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 30px; }
